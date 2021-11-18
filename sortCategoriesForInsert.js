@@ -31,6 +31,7 @@ function parentIsIncluded(array, item) {
     return false;
   }
 
+  // User find be could be any method that indicates a match, this stops after a match is made and might be more performant.
   return array.find((i) => i.id == item.parent_id);
 }
 
@@ -60,5 +61,9 @@ function sortItems(array) {
   return merge(sortItems(left), sortItems(array));
 }
 
-const sorted = sortItems(data);
-console.log(sorted);
+function sortCategoriesForInsert(data) {
+  return sortItems(data);
+}
+console.log(sortCategoriesForInsert(data));
+
+exports.sortCategoriesForInsert = sortCategoriesForInsert;
